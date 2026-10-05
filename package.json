@@ -1,0 +1,18 @@
+{
+  "name": "boutique-accessoires-femme",
+  "version": "1.0.0",
+  "description": "Boutique en ligne élégante d'accessoires féminins (Bijoux, Montres, Casquettes) - React + Tailwind & Node.js + Prisma",
+  "scripts": {
+    "dev": "npm run dev:client",
+    "dev:client": "npm --prefix frontend run dev",
+    "dev:server": "npm --prefix backend run dev",
+    "build:client": "npm --prefix frontend run build",
+    "build:server": "npm --prefix backend run build",
+    "build": "npm --prefix backend install && npm --prefix backend run prisma:generate",
+    "start": "node backend/src/index.js",
+    "render-build": "npm --prefix backend install && npm --prefix backend run prisma:generate && npm --prefix backend run prisma:push"
+  },
+  "keywords": ["ecommerce", "react", "tailwind", "prisma", "render", "bijoux", "montres", "casquettes"],
+  "author": "Aurélie Paris",
+  "license": "MIT"
+}

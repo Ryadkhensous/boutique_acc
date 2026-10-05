@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id            Int         @id @default(autoincrement())
+  name          String
+  slug          String      @unique
+  description   String
+  price         Float
+  originalPrice Float?
+  category      String      // bijoux, montres, casquettes
+  subCategory   String?     // colliers, bagues, bracelets, boucles, montres-dorees, etc.
+  images        String      // JSON array string of image URLs
+  inStock       Boolean     @default(true)
+  stockCount    Int         @default(20)
+  rating        Float       @default(4.9)
+  reviewCount   Int         @default(18)
+  badge         String?     // "Coup de Cœur", "Nouveau", "Bestseller", "-25%"
+  material      String?     // "Plaqué Or 18k", "Acier Inoxydable", "Coton Bio", etc.
+  featured      Boolean     @default(false)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  reviews       Review[]
+  orderItems    OrderItem[]
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  author    String
+  rating    Int      @default(5)
+  comment   String
+  verified  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  productId Int
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Order {
+  id              Int         @id @default(autoincrement())
+  orderNumber     String      @unique
+  customerName    String
+  customerEmail   String
+  customerPhone   String?
+  shippingAddress String
+  city            String
+  postalCode      String
+  country         String      @default("France")
+  paymentMethod   String      @default("card")
+  totalAmount     Float
+  status          String      @default("PAID")
+  createdAt       DateTime    @default(now())
+
+  items           OrderItem[]
+}
+
+model OrderItem {
+  id        Int     @id @default(autoincrement())
+  quantity  Int     @default(1)
+  price     Float
+
+  orderId   Int
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  productId Int
+  product   Product @relation(fields: [productId], references: [id])
+}

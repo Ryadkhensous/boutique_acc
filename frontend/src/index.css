@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #faf8f5;
+    color: #242220;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f5f2eb;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #dfc597;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b88a44;
+  }
+}
+
+/* Glassmorphism et effets de brillance */
+.glass-header {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #b88a44 0%, #d4a75e 50%, #8c6721 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #cca56a 0%, #b88a44 100%);
+}
+
+.gold-gradient-bg:hover {
+  background: linear-gradient(135deg, #b88a44 0%, #9e6e34 100%);
+}
