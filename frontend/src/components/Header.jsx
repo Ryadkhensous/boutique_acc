@@ -118,26 +118,45 @@ export default function Header({
             {user ? (
               <button
                 onClick={() => setIsDashboardOpen(true)}
-                className="flex items-center gap-1.5 sm:gap-2 py-1 px-2 sm:px-3 rounded-full bg-gold-50/90 hover:bg-gold-100 border border-gold-300 text-gold-950 transition cursor-pointer shadow-xs"
+                className="group relative flex items-center gap-2.5 pl-1.5 pr-3.5 py-1 rounded-full bg-gradient-to-r from-white via-[#faf6f0] to-[#f7f0e6] hover:from-white hover:to-[#f3e7d6] border border-[#e5ded0] hover:border-gold-400 shadow-xs hover:shadow-soft transition-all duration-300 cursor-pointer"
                 title="Accéder à mon Salon Privé"
               >
-                <img
-                  src={user.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'}
-                  alt={user.name}
-                  className="w-5 h-5 rounded-full object-cover border border-gold-400"
-                />
-                <span className="hidden md:inline text-xs font-semibold">
-                  {user.name.split(' ')[0]} ✨
-                </span>
+                {/* Avatar raffiné avec double cerclage or */}
+                <div className="relative">
+                  <div className="w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-gold-600 via-amber-300 to-gold-400 shadow-xs group-hover:scale-105 transition-transform duration-300">
+                    <img
+                      src={user.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'}
+                      alt={user.name}
+                      className="w-full h-full rounded-full object-cover object-top"
+                    />
+                  </div>
+                  {/* Pastille dorée active */}
+                  <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-gradient-to-r from-gold-500 to-amber-400 rounded-full border-2 border-white shadow-xs" />
+                </div>
+
+                {/* Identité VIP soignée */}
+                <div className="hidden sm:flex flex-col text-left">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.18em] text-gold-700 flex items-center gap-1 leading-none">
+                    <Sparkles className="w-2.5 h-2.5 text-gold-500" />
+                    VIP Or
+                  </span>
+                  <span className="text-xs font-serif font-semibold text-luxe-black group-hover:text-gold-900 transition-colors leading-tight mt-0.5">
+                    {user.name.split(' ')[0]}
+                  </span>
+                </div>
               </button>
             ) : (
               <button
                 onClick={() => setIsAuthModalOpen(true)}
-                className="p-2 text-luxe-black hover:text-gold-600 transition flex items-center gap-1.5 cursor-pointer"
+                className="group flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-white hover:bg-[#faf6f0] border border-[#e5ded0] hover:border-gold-400 shadow-xs hover:shadow-soft transition-all duration-300 text-luxe-charcoal cursor-pointer"
                 title="Espace Membre Privilège"
               >
-                <User className="w-5 h-5" />
-                <span className="hidden md:inline text-xs font-medium">Mon Espace</span>
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gold-100 to-gold-200 text-gold-800 flex items-center justify-center group-hover:bg-gold-500 group-hover:text-white transition-all shadow-xs">
+                  <User className="w-3.5 h-3.5" />
+                </div>
+                <span className="hidden sm:inline text-xs font-semibold text-luxe-black tracking-wide">
+                  Mon Espace
+                </span>
               </button>
             )}
 
@@ -200,6 +219,48 @@ export default function Header({
         {/* Menu mobile déroulant */}
         {mobileMenuOpen && (
           <div className="md:hidden pt-4 pb-3 border-t border-[#eee7da] mt-3 space-y-2 animate-slide-up">
+            {/* Accès rapide Salon Privé dans le menu mobile */}
+            {user ? (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setIsDashboardOpen(true);
+                }}
+                className="w-full flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-gold-50 to-[#faf5ee] border border-gold-200 text-left mb-2 shadow-xs cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <img
+                    src={user.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'}
+                    alt={user.name}
+                    className="w-9 h-9 rounded-full object-cover border-2 border-gold-400"
+                  />
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gold-700 flex items-center gap-1">
+                      <Sparkles className="w-2.5 h-2.5" /> VIP Or
+                    </span>
+                    <h5 className="font-serif text-xs font-bold text-luxe-black">{user.name}</h5>
+                  </div>
+                </div>
+                <span className="text-[11px] text-gold-800 font-semibold bg-white px-2.5 py-1 rounded-full border border-gold-200">
+                  Salon Privé →
+                </span>
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setIsAuthModalOpen(true);
+                }}
+                className="w-full flex items-center justify-between p-3 rounded-2xl bg-gold-50 text-gold-900 font-semibold text-xs border border-gold-200 mb-2 cursor-pointer"
+              >
+                <span className="flex items-center gap-2">
+                  <User className="w-4 h-4 text-gold-700" />
+                  Connexion / Rejoindre le Cercle
+                </span>
+                <span>→</span>
+              </button>
+            )}
+
             {categories.map((cat) => (
               <button
                 key={cat.id}
