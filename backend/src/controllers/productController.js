@@ -4,18 +4,15 @@ import { initialProducts, mockReviews } from '../data/mockProducts.js';
 let isPrismaAvailable = null;
 
 async function checkPrisma() {
-  if (isPrismaAvailable !== null) return isPrismaAvailable;
+  if (isPrismaAvailable === true) return true;
   try {
-    if (!prisma) {
-      isPrismaAvailable = false;
-      return false;
-    }
+    if (!prisma) return false;
     await prisma.$queryRaw`SELECT 1`;
     isPrismaAvailable = true;
+    console.log('✅ PostgreSQL connecté et opérationnel.');
     return true;
   } catch (err) {
-    isPrismaAvailable = false;
-    console.warn('⚠️ Note: PostgreSQL non disponible localement. Utilisation du mode démonstration avec données en mémoire.');
+    isPrismaAvailable = null; // Permet de retenter à la prochaine requête
     return false;
   }
 }
