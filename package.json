@@ -8,9 +8,9 @@
     "dev:server": "npm --prefix backend run dev",
     "build:client": "npm --prefix frontend run build",
     "build:server": "npm --prefix backend run build",
-    "build": "npm --prefix backend install && npm --prefix backend run prisma:generate",
+    "build": "npm --prefix backend install && npm --prefix backend run build",
     "start": "node backend/src/index.js",
-    "render-build": "npm --prefix backend install && npm --prefix backend run prisma:generate && npm --prefix backend run prisma:push"
+    "render-build": "npm --prefix backend install && npm --prefix backend run build"
   },
   "keywords": ["ecommerce", "react", "tailwind", "prisma", "render", "bijoux", "montres", "casquettes"],
   "author": "Aurélie Paris",
