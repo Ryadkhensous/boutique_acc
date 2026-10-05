@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Heart, Search, Menu, X, Sparkles, Phone, ShieldCheck } from 'lucide-react';
+import { ShoppingBag, Heart, Search, Menu, X, Sparkles, User } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function Header({
   activeCategory,
@@ -10,6 +11,7 @@ export default function Header({
   onOpenWishlist
 }) {
   const { cartCount, wishlist, setIsCartOpen } = useCart();
+  const { user, setIsAuthModalOpen, setIsDashboardOpen } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
@@ -111,6 +113,33 @@ export default function Header({
                 <Search className="w-5 h-5" />
               </button>
             </div>
+
+            {/* Espace Client / Salon Privé */}
+            {user ? (
+              <button
+                onClick={() => setIsDashboardOpen(true)}
+                className="flex items-center gap-1.5 sm:gap-2 py-1 px-2 sm:px-3 rounded-full bg-gold-50/90 hover:bg-gold-100 border border-gold-300 text-gold-950 transition cursor-pointer shadow-xs"
+                title="Accéder à mon Salon Privé"
+              >
+                <img
+                  src={user.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80'}
+                  alt={user.name}
+                  className="w-5 h-5 rounded-full object-cover border border-gold-400"
+                />
+                <span className="hidden md:inline text-xs font-semibold">
+                  {user.name.split(' ')[0]} ✨
+                </span>
+              </button>
+            ) : (
+              <button
+                onClick={() => setIsAuthModalOpen(true)}
+                className="p-2 text-luxe-black hover:text-gold-600 transition flex items-center gap-1.5 cursor-pointer"
+                title="Espace Membre Privilège"
+              >
+                <User className="w-5 h-5" />
+                <span className="hidden md:inline text-xs font-medium">Mon Espace</span>
+              </button>
+            )}
 
             {/* Favoris */}
             <button

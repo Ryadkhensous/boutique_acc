@@ -7,6 +7,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id              Int         @id @default(autoincrement())
+  email           String      @unique
+  password        String?
+  name            String
+  phone           String?
+  avatar          String?
+  address         String?
+  city            String?
+  postalCode      String?
+  country         String      @default("France")
+  preferredMetal  String?     @default("Or Jaune 18K")
+  ringSize        String?     @default("52")
+  loyaltyPoints   Int         @default(250)
+  vipTier         String      @default("Ambassadrice Or")
+  referralCode    String?     @unique
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  orders          Order[]
+}
+
 model Product {
   id            Int         @id @default(autoincrement())
   name          String
@@ -55,8 +77,12 @@ model Order {
   country         String      @default("France")
   paymentMethod   String      @default("card")
   totalAmount     Float
-  status          String      @default("PAID")
+  status          String      @default("PREPARING") // PAID, PREPARING, SHIPPED, DELIVERED
+  trackingNumber  String?
   createdAt       DateTime    @default(now())
+
+  userId          Int?
+  user            User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
 
   items           OrderItem[]
 }

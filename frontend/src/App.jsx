@@ -10,7 +10,10 @@ import ProductDetailModal from './components/ProductDetailModal';
 import CartDrawer from './components/CartDrawer';
 import CheckoutModal from './components/CheckoutModal';
 import WishlistModal from './components/WishlistModal';
+import AuthModal from './components/AuthModal';
+import UserDashboardModal from './components/UserDashboardModal';
 import { CartProvider, useCart } from './context/CartContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import { defaultProducts } from './data/fallbackProducts';
 
 function BoutiqueMain() {
@@ -27,6 +30,13 @@ function BoutiqueMain() {
     isCheckoutOpen,
     setIsCheckoutOpen
   } = useCart();
+
+  const {
+    isAuthModalOpen,
+    setIsAuthModalOpen,
+    isDashboardOpen,
+    setIsDashboardOpen
+  } = useAuth();
 
   // Chargement depuis l'API Node.js backend
   useEffect(() => {
@@ -199,14 +209,27 @@ function BoutiqueMain() {
           setSelectedProduct(p);
         }}
       />
+      {/* Modale d'Authentification / Connexion */}
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+      />
+
+      {/* Salon Privé Client (Dashboard Utilisateur) */}
+      <UserDashboardModal
+        isOpen={isDashboardOpen}
+        onClose={() => setIsDashboardOpen(false)}
+      />
     </div>
   );
 }
 
 export default function App() {
   return (
-    <CartProvider>
-      <BoutiqueMain />
-    </CartProvider>
+    <AuthProvider>
+      <CartProvider>
+        <BoutiqueMain />
+      </CartProvider>
+    </AuthProvider>
   );
 }

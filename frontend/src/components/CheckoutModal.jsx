@@ -1,23 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, CheckCircle, ShieldCheck, Lock, CreditCard, Sparkles, Truck } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function CheckoutModal({ isOpen, onClose }) {
   const { cart, cartTotal, shippingFee, clearCart } = useCart();
+  const { user, addOrderToProfile } = useAuth();
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    postalCode: '',
-    city: '',
+    name: user?.name || '',
+    email: user?.email || '',
+    phone: user?.phone || '',
+    address: user?.address || '',
+    postalCode: user?.postalCode || '',
+    city: user?.city || '',
     paymentMethod: 'card',
     cardNumber: '•••• •••• •••• 4242',
     cardExpiry: '12/28',
     cardCvc: '888'
   });
+
+  useEffect(() => {
+    if (user) {
+      setFormData(prev => ({
+        ...prev,
+        name: user.name || prev.name,
+        email: user.email || prev.email,
+        phone: user.phone || prev.phone,
+        address: user.address || prev.address,
+        postalCode: user.postalCode || prev.postalCode,
+        city: user.city || prev.city
+      }));
+    }
+  }, [user]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [completedOrder, setCompletedOrder] = useState(null);
@@ -77,10 +93,23 @@ export default function CheckoutModal({ isOpen, onClose }) {
       });
     } catch {}
 
-    setCompletedOrder(orderResult || {
-      orderNumber: 'CMD-782910',
-      totalAmount: cartTotal
-    });
+    const finalOrder = orderResult || {
+      orderNumber: 'CMD-' + Math.floor(100000 + Math.random() * 900000),
+      totalAmount: cartTotal,
+      items: cart,
+      status: 'PREPARING',
+      date: 'À l\'instant'
+    };
+
+    if (addOrderToProfile) {
+      addOrderToProfile({
+        ...finalOrder,
+        status: 'PREPARING',
+        date: 'À l\'instant'
+      });
+    }
+
+    setCompletedOrder(finalOrder);
     clearCart();
     setIsSubmitting(false);
   };
