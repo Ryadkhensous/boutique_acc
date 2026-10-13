@@ -3,20 +3,20 @@ import { X, Star, Heart, ShoppingBag, ShieldCheck, Truck, RotateCcw, Check, Spar
 import { useCart } from '../context/CartContext';
 
 export default function ProductDetailModal({ product, onClose, onReviewAdded }) {
-  if (!product) return null;
-
   const { addToCart, toggleWishlist, isInWishlist } = useCart();
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [justAdded, setJustAdded] = useState(false);
   const [activeTab, setActiveTab] = useState('description');
 
-  // Formulaire d'avis
+  // نموذج إضافة تقييم
   const [reviewAuthor, setReviewAuthor] = useState('');
   const [reviewRating, setReviewRating] = useState(5);
   const [reviewComment, setReviewComment] = useState('');
   const [reviewSubmitting, setReviewSubmitting] = useState(false);
   const [reviewSuccess, setReviewSuccess] = useState(false);
+
+  if (!product) return null;
 
   const isFavorite = isInWishlist(product.id);
 
@@ -56,8 +56,8 @@ export default function ProductDetailModal({ product, onClose, onReviewAdded }) 
         setReviewComment('');
         if (onReviewAdded) onReviewAdded(product.id, data.data);
       }
-    } catch (err) {
-      // Simulation locale si backend non démarré
+    } catch {
+      // محاكاة محلية
       setReviewSuccess(true);
       setReviewAuthor('');
       setReviewComment('');
@@ -69,31 +69,31 @@ export default function ProductDetailModal({ product, onClose, onReviewAdded }) 
   const reviews = product.reviews || [
     {
       id: 101,
-      author: 'Caroline T.',
+      author: 'ياسمين ب.',
       rating: 5,
-      comment: 'Bijou exceptionnel, encore plus beau en vrai ! La boîte cadeau est raffinée.',
-      date: 'Récemment'
+      comment: 'قطعة غاية في الرقة والجمال، أجمل بكثير من الصور! والتغليف فاخر جداً يصلح كهدية مميزة.',
+      date: 'مؤخراً'
     }
   ];
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-fade-in">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-fade-in text-right">
       <div
         className="relative bg-white w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl border border-[#ede5d8] my-8 animate-slide-up"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Bouton Fermer */}
+        {/* زر الإغلاق في أعلى اليسار (RTL) */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-gray-700 shadow-md flex items-center justify-center transition-transform hover:scale-105"
-          aria-label="Fermer"
+          className="absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-gray-700 shadow-md flex items-center justify-center transition-transform hover:scale-105 cursor-pointer"
+          aria-label="إغلاق"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 p-6 sm:p-8">
           
-          {/* Colonne Galerie Photos */}
+          {/* عمود معرض الصور */}
           <div className="md:col-span-6 space-y-4">
             <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-[#faf7f2] border border-[#ece4d6]">
               <img
@@ -102,13 +102,13 @@ export default function ProductDetailModal({ product, onClose, onReviewAdded }) 
                 className="w-full h-full object-cover object-center transition-all duration-300"
               />
               {product.badge && (
-                <span className="absolute top-3 left-3 bg-[#2d2724] text-gold-300 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+                <span className="absolute top-3 right-3 bg-[#2a2421] text-gold-200 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
                   {product.badge}
                 </span>
               )}
             </div>
 
-            {/* Miniatures */}
+            {/* الصور المصغرة */}
             {imagesList.length > 1 && (
               <div className="flex gap-3">
                 {imagesList.map((img, idx) => (
@@ -119,18 +119,18 @@ export default function ProductDetailModal({ product, onClose, onReviewAdded }) 
                       selectedImageIndex === idx ? 'border-gold-500 shadow-md scale-102' : 'border-[#e4ded3] opacity-70 hover:opacity-100'
                     }`}
                   >
-                    <img src={img} alt={`miniature ${idx}`} className="w-full h-full object-cover" />
+                    <img src={img} alt={`مصغرة ${idx}`} className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>
             )}
           </div>
 
-          {/* Colonne Détails & Action */}
+          {/* عمود التفاصيل والشراء */}
           <div className="md:col-span-6 flex flex-col justify-between space-y-5">
             
             <div className="space-y-3">
-              {/* Étoiles & avis */}
+              {/* التقييم وزر المفضلة */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="flex text-amber-400">
@@ -146,33 +146,33 @@ export default function ProductDetailModal({ product, onClose, onReviewAdded }) 
                     ))}
                   </div>
                   <span className="text-xs text-luxe-muted font-medium">
-                    {product.rating || 4.9} ({reviews.length} avis)
+                    {product.rating || 4.9} ({reviews.length} تقييم)
                   </span>
                 </div>
 
-                {/* Bouton Favori */}
+                {/* زر المفضلة */}
                 <button
                   onClick={() => toggleWishlist(product.id)}
-                  className="flex items-center gap-1.5 text-xs text-gray-600 hover:text-rose-500 transition font-medium"
+                  className="flex items-center gap-1.5 text-xs text-gray-600 hover:text-rose-500 transition font-bold cursor-pointer"
                 >
                   <Heart className={`w-4 h-4 ${isFavorite ? 'fill-rose-500 text-rose-500' : ''}`} />
-                  <span>{isFavorite ? 'Sauvegardé' : 'Favori'}</span>
+                  <span>{isFavorite ? 'محفوظ' : 'إضافة للمفضلة'}</span>
                 </button>
               </div>
 
-              {/* Titre & Matière */}
-              <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-luxe-black leading-snug">
+              {/* اسم المنتج */}
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-luxe-black leading-snug">
                 {product.name}
               </h3>
 
               {product.material && (
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-gold-50 border border-gold-200 text-xs font-semibold text-gold-800">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-gold-50 border border-gold-200 text-xs font-bold text-gold-800">
                   <Sparkles className="w-3.5 h-3.5 text-gold-600" />
                   {product.material}
                 </div>
               )}
 
-              {/* Prix */}
+              {/* السعر */}
               <div className="flex items-baseline gap-3 pt-1">
                 <span className="font-serif text-3xl font-bold text-luxe-black">
                   {product.price.toFixed(2)} €
@@ -182,32 +182,32 @@ export default function ProductDetailModal({ product, onClose, onReviewAdded }) 
                     <span className="text-sm text-gray-400 line-through">
                       {product.originalPrice.toFixed(2)} €
                     </span>
-                    <span className="text-xs font-semibold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full">
-                      Économisez {(product.originalPrice - product.price).toFixed(2)} €
+                    <span className="text-xs font-bold text-gold-800 bg-gold-50 border border-gold-200 px-2 py-0.5 rounded-full">
+                      وفرتِ {(product.originalPrice - product.price).toFixed(2)} €
                     </span>
                   </>
                 )}
               </div>
 
-              {/* Description courte */}
+              {/* الوصف القصير */}
               <p className="text-xs sm:text-sm text-luxe-muted leading-relaxed">
                 {product.description}
               </p>
 
-              {/* Stock */}
-              <p className="text-xs text-emerald-700 font-semibold flex items-center gap-1.5">
+              {/* المخزون */}
+              <p className="text-xs text-emerald-700 font-bold flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                En stock — Expédition aujourd'hui
+                متوفر بالمخزون — شحن فوري اليوم
               </p>
             </div>
 
-            {/* Sélecteur de quantité & Ajout au Panier */}
+            {/* محدد الكمية وزر الإضافة */}
             <div className="space-y-4 pt-4 border-t border-[#eee7da]">
               <div className="flex items-center gap-3">
                 <div className="flex items-center border border-[#d8d0c2] rounded-full bg-[#fbf9f6] p-1">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white text-gray-700 text-sm font-semibold transition"
+                    className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white text-gray-700 text-sm font-bold transition cursor-pointer"
                   >
                     -
                   </button>
@@ -216,17 +216,17 @@ export default function ProductDetailModal({ product, onClose, onReviewAdded }) 
                   </span>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
-                    className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white text-gray-700 text-sm font-semibold transition"
+                    className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white text-gray-700 text-sm font-bold transition cursor-pointer"
                   >
                     +
                   </button>
                 </div>
 
-                {/* Bouton d'ajout */}
+                {/* زر أضف إلى السلة */}
                 <button
                   onClick={handleAddToCart}
                   disabled={justAdded}
-                  className={`flex-1 py-3.5 px-6 rounded-full font-medium text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-soft cursor-pointer ${
+                  className={`flex-1 py-3.5 px-6 rounded-full font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-soft cursor-pointer ${
                     justAdded
                       ? 'bg-emerald-600 text-white'
                       : 'gold-gradient-bg hover:opacity-95 text-white active:scale-98'
@@ -235,30 +235,30 @@ export default function ProductDetailModal({ product, onClose, onReviewAdded }) 
                   {justAdded ? (
                     <>
                       <Check className="w-4 h-4" />
-                      Ajouté au panier !
+                      تمت الإضافة للسلة !
                     </>
                   ) : (
                     <>
                       <ShoppingBag className="w-4 h-4" />
-                      Ajouter au panier • {(product.price * quantity).toFixed(2)} €
+                      أضف إلى السلة • {(product.price * quantity).toFixed(2)} €
                     </>
                   )}
                 </button>
               </div>
 
-              {/* Garanties */}
+              {/* الضمانات */}
               <div className="grid grid-cols-3 gap-2 pt-2 text-center text-[11px] text-luxe-muted">
                 <div className="flex flex-col items-center p-2 rounded-xl bg-[#faf7f2]">
                   <Truck className="w-4 h-4 text-gold-600 mb-1" />
-                  <span>Livraison 48h</span>
+                  <span className="font-medium">توصيل 48 ساعة</span>
                 </div>
                 <div className="flex flex-col items-center p-2 rounded-xl bg-[#faf7f2]">
                   <RotateCcw className="w-4 h-4 text-gold-600 mb-1" />
-                  <span>Retours 30j</span>
+                  <span className="font-medium">إرجاع 30 يوماً</span>
                 </div>
                 <div className="flex flex-col items-center p-2 rounded-xl bg-[#faf7f2]">
                   <ShieldCheck className="w-4 h-4 text-gold-600 mb-1" />
-                  <span>Garantie 2 ans</span>
+                  <span className="font-medium">ضمان سنتين</span>
                 </div>
               </div>
 
@@ -268,121 +268,128 @@ export default function ProductDetailModal({ product, onClose, onReviewAdded }) 
 
         </div>
 
-        {/* Section Onglets : Détails & Avis */}
+        {/* علامات التبويب : الوصف والتقييمات */}
         <div className="border-t border-[#eee7da] bg-[#faf8f5] px-6 sm:px-8 py-6">
-          <div className="flex border-b border-[#e5ded2] gap-6 text-sm font-medium mb-6">
+          <div className="flex border-b border-[#e5ded2] gap-6 text-sm font-bold mb-6">
             <button
               onClick={() => setActiveTab('description')}
-              className={`pb-3 border-b-2 transition ${
+              className={`pb-3 border-b-2 transition cursor-pointer ${
                 activeTab === 'description'
-                  ? 'border-gold-600 text-gold-800 font-semibold'
+                  ? 'border-gold-600 text-gold-800 font-bold'
                   : 'border-transparent text-gray-500 hover:text-gray-900'
               }`}
             >
-              Description & Entretien
+              الوصف والعناية
             </button>
             <button
               onClick={() => setActiveTab('reviews')}
-              className={`pb-3 border-b-2 transition ${
+              className={`pb-3 border-b-2 transition cursor-pointer ${
                 activeTab === 'reviews'
-                  ? 'border-gold-600 text-gold-800 font-semibold'
+                  ? 'border-gold-600 text-gold-800 font-bold'
                   : 'border-transparent text-gray-500 hover:text-gray-900'
               }`}
             >
-              Avis Clientes ({reviews.length})
+              آراء العميلات ({reviews.length})
             </button>
           </div>
 
           {activeTab === 'description' ? (
             <div className="space-y-3 text-xs sm:text-sm text-luxe-charcoal leading-relaxed max-w-3xl">
               <p>{product.description}</p>
-              <h5 className="font-semibold text-luxe-black pt-2">Conseils d'entretien de la Maison Aurélie :</h5>
-              <ul className="list-disc pl-5 space-y-1 text-luxe-muted">
-                <li>Pour préserver l'éclat de vos bijoux, évitez le contact direct prolongé avec les parfums et produits cosmétiques.</li>
-                <li>Nettoyez délicatement avec la chamoisine douce fournie dans votre écrin.</li>
-                <li>Rangez vos pièces individuellement dans leur pochon en satin.</li>
+              <h5 className="font-bold text-luxe-black pt-2">نصائح العناية من دار أوريلي :</h5>
+              <ul className="list-disc pr-5 space-y-1 text-luxe-muted">
+                <li>للحفاظ على بريق مجوهراتكِ، تجنبي الملامسة المباشرة الطويلة للعطور ومستحضرات التجميل.</li>
+                <li>نظفي القطع برقة باستخدام القماشة الناعمة المرفقة في علبة الهدية.</li>
+                <li>احفظي كل قطعة بمفردها داخل كيس الساتان الواقي الخاص بها.</li>
               </ul>
             </div>
           ) : (
             <div className="space-y-6 max-w-3xl">
-              {/* Formulaire d'avis */}
+              {/* نموذج كتابة تقييم */}
               <form onSubmit={handleSendReview} className="bg-white p-4 sm:p-5 rounded-2xl border border-[#e8e0d2] space-y-3">
-                <h5 className="font-serif text-sm font-semibold text-luxe-black">
-                  Donnez votre avis sur cet accessoire
+                <h5 className="font-serif text-sm font-bold text-luxe-black">
+                  شاركينا رأيكِ حول هذه القطعة
                 </h5>
 
                 {reviewSuccess && (
                   <div className="p-3 bg-emerald-50 text-emerald-800 rounded-xl text-xs flex items-center gap-2">
                     <Check className="w-4 h-4" />
-                    Merci pour votre avis précieux ! Il est désormais publié.
+                    شكراً جزيلاً لتقييمكِ الثمين! تم نشره بنجاح.
                   </div>
                 )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <input
-                    type="text"
-                    placeholder="Votre prénom ou nom"
-                    value={reviewAuthor}
-                    onChange={(e) => setReviewAuthor(e.target.value)}
-                    required
-                    className="bg-[#faf8f5] border border-[#e1d9cc] rounded-xl px-3 py-2 text-xs text-gray-900 outline-none focus:border-gold-500"
-                  />
-                  <div className="flex items-center gap-2 px-3 py-2 bg-[#faf8f5] border border-[#e1d9cc] rounded-xl">
-                    <span className="text-xs text-gray-600">Note :</span>
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-600 mb-1">اسمكِ الكامل</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="مثال: ياسمين ب."
+                      value={reviewAuthor}
+                      onChange={(e) => setReviewAuthor(e.target.value)}
+                      className="w-full px-3 py-2 border border-[#ded5c7] rounded-xl text-xs outline-none focus:border-gold-500 text-right"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-600 mb-1">التقييم العام</label>
                     <select
                       value={reviewRating}
                       onChange={(e) => setReviewRating(Number(e.target.value))}
-                      className="bg-transparent text-xs font-semibold text-amber-600 outline-none cursor-pointer"
+                      className="w-full px-3 py-2 border border-[#ded5c7] rounded-xl text-xs outline-none focus:border-gold-500 bg-white font-medium text-right"
                     >
-                      <option value={5}>⭐⭐⭐⭐⭐ (5/5)</option>
-                      <option value={4}>⭐⭐⭐⭐ (4/5)</option>
-                      <option value={3}>⭐⭐⭐ (3/5)</option>
+                      <option value={5}>★★★★★ (5/5) ممتاز جداً</option>
+                      <option value={4}>★★★★☆ (4/5) جميل جداً</option>
+                      <option value={3}>★★★☆☆ (3/5) جيد</option>
+                      <option value={2}>★★☆☆☆ (2/5) متوسط</option>
+                      <option value={1}>★☆☆☆☆ (1/5) غير راضية</option>
                     </select>
                   </div>
                 </div>
 
-                <textarea
-                  rows={3}
-                  placeholder="Que pensez-vous de la qualité, du design et du confort ?"
-                  value={reviewComment}
-                  onChange={(e) => setReviewComment(e.target.value)}
-                  required
-                  className="w-full bg-[#faf8f5] border border-[#e1d9cc] rounded-xl p-3 text-xs text-gray-900 outline-none focus:border-gold-500"
-                />
+                <div>
+                  <label className="block text-[11px] font-bold text-gray-600 mb-1">تعليقكِ</label>
+                  <textarea
+                    required
+                    rows={3}
+                    placeholder="صفي تجربتكِ مع الخامة والجودة والتغليف..."
+                    value={reviewComment}
+                    onChange={(e) => setReviewComment(e.target.value)}
+                    className="w-full px-3 py-2 border border-[#ded5c7] rounded-xl text-xs outline-none focus:border-gold-500 text-right"
+                  />
+                </div>
 
                 <button
                   type="submit"
                   disabled={reviewSubmitting}
-                  className="bg-[#2d2724] hover:bg-gold-700 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition flex items-center gap-2 cursor-pointer"
+                  className="bg-[#2d2724] hover:bg-gold-700 text-white text-xs font-bold px-5 py-2.5 rounded-full flex items-center gap-2 cursor-pointer transition shadow-soft"
                 >
                   <Send className="w-3.5 h-3.5" />
-                  {reviewSubmitting ? 'Publication...' : 'Publier mon avis'}
+                  <span>{reviewSubmitting ? 'جاري الإرسال...' : 'إرسال التقييم'}</span>
                 </button>
               </form>
 
-              {/* Liste des avis */}
+              {/* قائمة الآراء المنشورة */}
               <div className="space-y-3">
-                {reviews.map((r, i) => (
-                  <div key={r.id || i} className="bg-white p-4 rounded-xl border border-[#eee7da]">
+                {reviews.map((rev, i) => (
+                  <div key={i} className="p-4 rounded-2xl bg-white border border-[#eee7da]">
                     <div className="flex items-center justify-between mb-1.5">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-semibold text-luxe-black">{r.author}</span>
-                        <span className="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full font-medium">Achat vérifié</span>
-                      </div>
+                      <span className="font-serif text-xs font-bold text-luxe-black">{rev.author}</span>
                       <div className="flex text-amber-400">
-                        {[...Array(r.rating || 5)].map((_, idx) => (
-                          <Star key={idx} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                        {[...Array(5)].map((_, idx) => (
+                          <Star
+                            key={idx}
+                            className={`w-3 h-3 ${idx < rev.rating ? 'fill-amber-400 text-amber-400' : 'text-gray-200'}`}
+                          />
                         ))}
                       </div>
                     </div>
-                    <p className="text-xs text-luxe-muted">{r.comment}</p>
+                    <p className="text-xs text-luxe-muted leading-relaxed">{rev.comment}</p>
                   </div>
                 ))}
               </div>
             </div>
           )}
         </div>
-
       </div>
     </div>
   );

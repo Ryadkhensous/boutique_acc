@@ -12,10 +12,10 @@ const initialDemoUser = {
   city: 'Paris',
   postalCode: '75002',
   country: 'France',
-  preferredMetal: 'Or Jaune 18K',
+  preferredMetal: 'ذهب أصفر عيار 18',
   ringSize: '52',
   loyaltyPoints: 480,
-  vipTier: 'Ambassadrice Or ✨',
+  vipTier: 'سفيرة VIP ذهبية ✨',
   referralCode: 'CAMILLE-OR-2026',
   orders: [
     {
@@ -27,18 +27,18 @@ const initialDemoUser = {
       totalAmount: 88.99,
       status: 'SHIPPED',
       trackingNumber: 'COLI-FR-84920194',
-      date: 'Il y a 2 jours',
+      date: 'منذ يومين',
       items: [
         {
           id: 1,
-          name: 'Collier Solstice Doré & Nacre',
+          name: 'قلادة سولستيس من الذهب عيار 18 وعرق اللؤلؤ',
           price: 49.99,
           quantity: 1,
           image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=300&q=80'
         },
         {
           id: 2,
-          name: 'Bague Étoilée Pavée Zircons',
+          name: 'خاتم النجمة المرصع بأحجار الزركون البراقة',
           price: 39.00,
           quantity: 1,
           image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=300&q=80'
@@ -54,11 +54,11 @@ const initialDemoUser = {
       totalAmount: 119.00,
       status: 'PREPARING',
       trackingNumber: 'COLI-FR-ATTENTE',
-      date: 'Aujourd\'hui à 11h30',
+      date: 'اليوم',
       items: [
         {
           id: 5,
-          name: 'Montre Aura Or Rose & Cadran Marbre',
+          name: 'ساعة أورا من الذهب الوردي بقرص رخامي فاخر',
           price: 119.00,
           quantity: 1,
           image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=300&q=80'

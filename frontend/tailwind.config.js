@@ -46,8 +46,8 @@ export default {
         }
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['"Amiri"', '"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Cairo"', '"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
         'soft': '0 4px 20px -2px rgba(184, 138, 68, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',

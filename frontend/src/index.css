@@ -6,6 +6,9 @@
   body {
     background-color: #faf8f5;
     color: #242220;
+    font-family: 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    direction: rtl;
+    text-align: right;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
@@ -36,6 +39,7 @@
 .gold-gradient-text {
   background: linear-gradient(135deg, #b88a44 0%, #d4a75e 50%, #8c6721 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

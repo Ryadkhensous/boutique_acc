@@ -2,9 +2,9 @@ export const initialProducts = [
   // --- BIJOUX ---
   {
     id: 1,
-    name: "Collier Solstice Doré & Nacre",
+    name: "قلادة سولستيس من الذهب عيار 18 وعرق اللؤلؤ",
     slug: "collier-solstice-dore-nacre",
-    description: "Un pendentif délicat orné d'un médaillon en nacre naturelle irisée et d'une chaîne maille forçat en plaqué or 18 carats. Résistant à l'eau et hypoallergénique, idéal pour sublimer vos tenues au quotidien.",
+    description: "قلادة ساحرة مرصعة بميدالية من عرق اللؤلؤ الطبيعي المتلألئ وسلسلة مطلية بالذهب عيار 18 قيراط. مقاومة للماء ومضادة للحساسية، مثالية لإبراز أناقتكِ اليومية بلمسة باريسية راقية.",
     price: 49.99,
     originalPrice: 65.00,
     category: "bijoux",
@@ -17,15 +17,15 @@ export const initialProducts = [
     stockCount: 14,
     rating: 4.9,
     reviewCount: 38,
-    badge: "Bestseller",
-    material: "Plaqué Or 18K (3 microns) & Nacre",
+    badge: "الأكثر مبيعاً",
+    material: "ذهب عيار 18 قيراط (3 ميكرون) وعرق اللؤلؤ",
     featured: true
   },
   {
     id: 2,
-    name: "Bague Étoilée Pavée Zircons",
+    name: "خاتم النجمة المرصع بأحجار الزركون البراقة",
     slug: "bague-etoilee-pavee-zircons",
-    description: "Bague ajustable en argent 925 doré, ornée de micro-oxydes de zirconium taille brillant qui captent délicatement la lumière. Un bijou raffiné à porter seul ou en accumulation.",
+    description: "خاتم قابل للتعديل مصاغ من الفضة عيار 925 المطلية بالذهب، ومرصع بأحجار زركونيا دقيقة عاكسة للضوء. قطعة فنية راقية يمكن ارتداؤها منفردة أو مع خواتم أخرى.",
     price: 39.00,
     originalPrice: 48.00,
     category: "bijoux",
@@ -38,15 +38,15 @@ export const initialProducts = [
     stockCount: 8,
     rating: 4.8,
     reviewCount: 24,
-    badge: "Coup de Cœur",
-    material: "Argent 925 & Cristaux Zirconium",
+    badge: "مفضل الأسبوع",
+    material: "فضة استرليني 925 وكريستال زركون",
     featured: true
   },
   {
     id: 3,
-    name: "Boucles d'Oreilles Perles Baroques",
+    name: "أقراط لؤلؤ الباروك الطبيعي الفاخر",
     slug: "boucles-oreilles-perles-baroques",
-    description: "Créoles fines torsadées accompagnées de véritables perles d'eau douce baroques. Chaque pièce est unique par ses reflets naturels et sa forme singulière.",
+    description: "أقراط دائرية ذهبية ملفوفة بعناية ومزينة بلآلئ مياه عذبة طبيعية فريدة. تتميز كل قطعة بتموجات ولمعان عضوي لا يتكرر.",
     price: 45.00,
     originalPrice: 55.00,
     category: "bijoux",
@@ -59,15 +59,15 @@ export const initialProducts = [
     stockCount: 19,
     rating: 5.0,
     reviewCount: 42,
-    badge: "Nouveau",
-    material: "Acier Inoxydable Doré & Perle d'eau douce",
+    badge: "جديد",
+    material: "فولاذ مقاوم للصدأ مذهب ولؤلؤ طبيعي",
     featured: false
   },
   {
     id: 4,
-    name: "Bracelet Jonc Tressé Lumina",
+    name: "سوار لومينا الصلب المجدول المطلي بالذهب",
     slug: "bracelet-jonc-tresse-lumina",
-    description: "Jonc ouvert subtilement gravé à la main, finition dorure satinée champagne. S'ajuste facilement à tous les poignets sans se déformer.",
+    description: "سوار صلب مفتوح منقوش يدوياً بنعومة مع لمسة نهائية ذهبية ساتانية بلون الشامبانيا. يتكيف بسهولة مع كل معصم دون أن يفقد شكله.",
     price: 34.50,
     originalPrice: 42.00,
     category: "bijoux",
@@ -81,144 +81,14 @@ export const initialProducts = [
     rating: 4.7,
     reviewCount: 19,
     badge: null,
-    material: "Acier Inoxydable Hypoallergénique",
-    featured: false
-  },
-
-  // --- MONTRES ---
-  {
-    id: 5,
-    name: "Montre Aura Or Rose & Cadran Marbre",
-    slug: "montre-aura-or-rose-cadran-marbre",
-    description: "Une montre d'une élégance absolue. Cadran ultra-plat texturé effet marbre blanc de Carrare, boîtier finition or rose poudré et bracelet en maille milanaise souple interchangeable.",
-    price: 119.00,
-    originalPrice: 149.00,
-    category: "montres",
-    subCategory: "montres-dorees",
-    images: JSON.stringify([
-      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80"
-    ]),
-    inStock: true,
-    stockCount: 11,
-    rating: 4.9,
-    reviewCount: 57,
-    badge: "Bestseller",
-    material: "Acier 316L, Verre Minéral Saphir, Mouvement Quartz Japonais",
-    featured: true
-  },
-  {
-    id: 6,
-    name: "Montre Héritage Cuir Nude & Doré",
-    slug: "montre-heritage-cuir-nude-dore",
-    description: "Allure intemporelle et féminine grâce à son bracelet en cuir italien souple couleur beige poudré et son cadran épuré ponctué d'index fins dorés.",
-    price: 95.00,
-    originalPrice: 120.00,
-    category: "montres",
-    subCategory: "montres-cuir",
-    images: JSON.stringify([
-      "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=800&q=80"
-    ]),
-    inStock: true,
-    stockCount: 6,
-    rating: 4.8,
-    reviewCount: 31,
-    badge: "Édition Limitée",
-    material: "Cuir Véritable Nude & Boîtier Doré",
-    featured: true
-  },
-  {
-    id: 7,
-    name: "Montre Petite Éclipse Dorée",
-    slug: "montre-petite-eclipse-doree",
-    description: "Mini boîtier de 28mm pensé spécialement pour les poignets fins. Bracelet à maillons ajustables et fermoir papillon sécurisé. Étanche 3 ATM.",
-    price: 105.00,
-    originalPrice: null,
-    category: "montres",
-    subCategory: "montres-dorees",
-    images: JSON.stringify([
-      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80"
-    ]),
-    inStock: true,
-    stockCount: 15,
-    rating: 4.9,
-    reviewCount: 28,
-    badge: "Nouveau",
-    material: "Acier Inoxydable Doré Haute Résistance",
-    featured: false
-  },
-
-  // --- CASQUETTES ---
-  {
-    id: 8,
-    name: "Casquette Coton Peigné Rose Poudré 'Amour'",
-    slug: "casquette-coton-rose-poudre-amour",
-    description: "Casquette style baseball en sergé de coton premium lavé ultra doux. Broderie fine signature sur le devant et boucle de réglage métallique à l'arrière pour une silhouette streetwear-chic féminine.",
-    price: 29.90,
-    originalPrice: 38.00,
-    category: "casquettes",
-    subCategory: "casquettes-brodees",
-    images: JSON.stringify([
-      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=800&q=80"
-    ]),
-    inStock: true,
-    stockCount: 25,
-    rating: 4.8,
-    reviewCount: 46,
-    badge: "Bestseller",
-    material: "100% Coton Respirant Oeko-Tex",
-    featured: true
-  },
-  {
-    id: 9,
-    name: "Casquette Velours Côtelé Sable",
-    slug: "casquette-velours-cotele-sable",
-    description: "Texture douce en velours côtelé couleur écru/sable. Apporte une touche vintage élégante et cocooning à toutes vos tenues de mi-saison et d'hiver.",
-    price: 32.00,
-    originalPrice: null,
-    category: "casquettes",
-    subCategory: "casquettes-velours",
-    images: JSON.stringify([
-      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80"
-    ]),
-    inStock: true,
-    stockCount: 17,
-    rating: 4.9,
-    reviewCount: 19,
-    badge: "Coup de Cœur",
-    material: "Velours de Coton Côtelé Haut de Gamme",
-    featured: true
-  },
-  {
-    id: 10,
-    name: "Casquette Minimaliste Kaki Olive",
-    slug: "casquette-minimaliste-kaki-olive",
-    description: "Teinte douce olive pastel, coupe déstructurée 6 pans avec visière précourbée. Parfaite pour une allure décontractée et soignée.",
-    price: 28.00,
-    originalPrice: 35.00,
-    category: "casquettes",
-    subCategory: "casquettes-brodees",
-    images: JSON.stringify([
-      "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80"
-    ]),
-    inStock: true,
-    stockCount: 12,
-    rating: 4.7,
-    reviewCount: 15,
-    badge: "-20%",
-    material: "Coton Canvas Durable",
+    material: "فولاذ مقاوم للصدأ ومضاد للحساسية",
     featured: false
   },
   {
     id: 11,
-    name: "Collier Cascade Trois Rangs Céleste",
+    name: "قلادة سيليست الثلاثية المتدرجة بنجوم وهلال ذهبي",
     slug: "collier-cascade-trois-rangs-celeste",
-    description: "Composition harmonieuse de trois chaînes dorées de longueurs complémentaires, agrémentées de petites étoiles sculptées et d'un médaillon lune.",
+    description: "تناغم مثالي لثلاث سلاسل ذهبية بأطوال متناسقة، مزدانة بنجوم مصقولة صغيرة وميدالية هلال ناعمة تبرز سحر العنق.",
     price: 52.00,
     originalPrice: 65.00,
     category: "bijoux",
@@ -231,15 +101,80 @@ export const initialProducts = [
     stockCount: 9,
     rating: 4.9,
     reviewCount: 34,
-    badge: "Promo",
-    material: "Plaqué Or 18K & Finition Satinée",
+    badge: "عرض خاص",
+    material: "ذهب عيار 18 قيراط بلمسة نهائية ساتانية",
+    featured: false
+  },
+
+  // --- MONTRES ---
+  {
+    id: 5,
+    name: "ساعة أورا من الذهب الوردي بقرص رخامي فاخر",
+    slug: "montre-aura-or-rose-cadran-marbre",
+    description: "ساعة تجمع بين الدقة والأناقة الفائقة. قرص فائق النحافة بنقشة رخام كرارا الأبيض الفاخر، هيكل ذهبي وردي رقيق وسوار شبكي ميلانيزي مرن وقابل للتعديل.",
+    price: 119.00,
+    originalPrice: 149.00,
+    category: "montres",
+    subCategory: "montres-dorees",
+    images: JSON.stringify([
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80"
+    ]),
+    inStock: true,
+    stockCount: 11,
+    rating: 4.9,
+    reviewCount: 57,
+    badge: "الأكثر مبيعاً",
+    material: "فولاذ 316L وزجاج ياقوتي ومحرك كوارتز ياباني",
+    featured: true
+  },
+  {
+    id: 6,
+    name: "ساعة هيريتيج بحزام جلد طبيعي بيج وإطار ذهبي",
+    slug: "montre-heritage-cuir-nude-dore",
+    description: "طابع كلاسيكي خالد مع سوار من الجلد الإيطالي الفاخر بلون النيود البودري وقرص هادئ مزين بمؤشرات ذهبية دقيقة تمنحك إطلالة أنثوية مميزة.",
+    price: 95.00,
+    originalPrice: 120.00,
+    category: "montres",
+    subCategory: "montres-cuir",
+    images: JSON.stringify([
+      "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&w=800&q=80"
+    ]),
+    inStock: true,
+    stockCount: 6,
+    rating: 4.8,
+    reviewCount: 31,
+    badge: "إصدار محدود",
+    material: "جلد إيطالي أصلي وهيكل مذهب",
+    featured: true
+  },
+  {
+    id: 7,
+    name: "ساعة إكليبس المصغرة بإطار وسوار ذهبي",
+    slug: "montre-petite-eclipse-doree",
+    description: "هيكل صغير أنيق بقطر 28 مم مخصص للمعاصم الناعمة. سوار بوصلات ذهبية قابلة للتعديل ومشبك فراشة آمن، مقاومة للماء حتى 3 ATM.",
+    price: 105.00,
+    originalPrice: null,
+    category: "montres",
+    subCategory: "montres-dorees",
+    images: JSON.stringify([
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80"
+    ]),
+    inStock: true,
+    stockCount: 15,
+    rating: 4.9,
+    reviewCount: 28,
+    badge: "جديد",
+    material: "ستانلس ستيل مذهب عالي التحمل",
     featured: false
   },
   {
     id: 12,
-    name: "Montre Chrono Minimaliste Nacre & Champagne",
+    name: "ساعة كرونوغراف فاخرة بقرص عرق اللؤلؤ والشامبانيا",
     slug: "montre-chrono-minimaliste-nacre-champagne",
-    description: "Subtile alliance de précision horlogère et de féminité. Sous-cadrans chrono discrets, aiguilles effilées et bracelet en maille milanaise dorée polie.",
+    description: "توليفة راقية بين دقة صناعة الساعات والجمال الأنثوي الأخّاذ. أقراص فرعية أنيقة، عقارب انسيابية وسوار شبكي ذهبي ميلاني مصقول بعناية.",
     price: 135.00,
     originalPrice: 165.00,
     category: "montres",
@@ -252,47 +187,73 @@ export const initialProducts = [
     stockCount: 7,
     rating: 5.0,
     reviewCount: 22,
-    badge: "Bestseller",
-    material: "Acier Chirurgical 316L & Mouvement Japonais",
+    badge: "الأكثر مبيعاً",
+    material: "ستانلس ستيل جراحي 316L ومحرك ياباني",
     featured: true
-  }
-];
+  },
 
-export const mockReviews = [
+  // --- CASQUETTES ---
   {
-    id: 1,
-    productId: 1,
-    author: "Camille D.",
-    rating: 5,
-    comment: "Le collier est absolument magnifique ! La nacre a des reflets incroyables et la dorure n'a pas bougé après 3 mois d'utilisation quotidienne.",
-    verified: true,
-    date: "Il y a 2 jours"
+    id: 8,
+    name: "قبعة بيسبول قطنية ناعمة بلون وردي بودري 'أمور'",
+    slug: "casquette-coton-rose-poudre-amour",
+    description: "قبعة بيسبول منسوجة من قطن التويل الفاخر المغسول وفائق النعومة. تطريز أمامي باريسي أنيق مع مشبك معدني خلفي لضبط المقاس بدقة.",
+    price: 29.90,
+    originalPrice: 38.00,
+    category: "casquettes",
+    subCategory: "casquettes-brodees",
+    images: JSON.stringify([
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=800&q=80"
+    ]),
+    inStock: true,
+    stockCount: 25,
+    rating: 4.8,
+    reviewCount: 46,
+    badge: "الأكثر مبيعاً",
+    material: "100% قطن طبيعي قابل للتنفس Oeko-Tex",
+    featured: true
   },
   {
-    id: 2,
-    productId: 5,
-    author: "Sophie M.",
-    rating: 5,
-    comment: "Montre somptueuse, le cadran effet marbre apporte un chic fou. Emballage soigné avec un petit pochon satiné.",
-    verified: true,
-    date: "Il y a 5 jours"
+    id: 9,
+    name: "قبعة مخملية مضلعة كلاسيكية بلون الرمل الدافئ",
+    slug: "casquette-velours-cotele-sable",
+    description: "نسيج مخملي مضلع دافئ وناعم بلون الساند الراقي. تضفي لمسة فينتيج دافئة وعصرية على إطلالاتكِ في كل فصول السنة.",
+    price: 32.00,
+    originalPrice: null,
+    category: "casquettes",
+    subCategory: "casquettes-velours",
+    images: JSON.stringify([
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80"
+    ]),
+    inStock: true,
+    stockCount: 17,
+    rating: 4.9,
+    reviewCount: 19,
+    badge: "مفضل الأسبوع",
+    material: "مخمل قطني مضلع فاخر",
+    featured: true
   },
   {
-    id: 3,
-    productId: 8,
-    author: "Léa B.",
-    rating: 5,
-    comment: "Couleur rose poudré très douce, ni trop vive ni fade. La matière en coton peigné est hyper confortable et la broderie de qualité.",
-    verified: true,
-    date: "Il y a 1 semaine"
-  },
-  {
-    id: 4,
-    productId: 2,
-    author: "Élodie V.",
-    rating: 5,
-    comment: "Bague sublime ! Les zircons brillent beaucoup, et le fait qu'elle soit ajustable est un vrai plus.",
-    verified: true,
-    date: "Il y a 2 semaines"
+    id: 10,
+    name: "قبعة كلاسيكية خفيفة بلون الزيتوني الهادئ",
+    slug: "casquette-minimaliste-kaki-olive",
+    description: "لون زيتوني هادئ بتصميم عصري من 6 ألواح مع حافة منحنية مسبقاً. مثالية لمظهر كاجوال مريح وأنيق في آن واحد.",
+    price: 28.00,
+    originalPrice: 35.00,
+    category: "casquettes",
+    subCategory: "casquettes-brodees",
+    images: JSON.stringify([
+      "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80"
+    ]),
+    inStock: true,
+    stockCount: 12,
+    rating: 4.7,
+    reviewCount: 15,
+    badge: "خصم 20%",
+    material: "قماش كانفاس قطني متين",
+    featured: false
   }
 ];

@@ -97,15 +97,15 @@ export function CartProvider({ children }) {
     if (formatted === 'ECLAT10' || formatted === 'BIENVENUE10') {
       setDiscountPercent(10);
       setPromoCode(formatted);
-      setPromoMessage({ type: 'success', text: 'Code appliqué ! -10% sur votre commande ✨' });
+      setPromoMessage({ type: 'success', text: 'تم تفعيل الرمز بنجاح! خصم 10% على طلبيتكِ ✨' });
       return true;
     } else if (formatted === 'VIP20') {
       setDiscountPercent(20);
       setPromoCode(formatted);
-      setPromoMessage({ type: 'success', text: 'Code VIP appliqué ! -20% ✨' });
+      setPromoMessage({ type: 'success', text: 'تم تفعيل رمز VIP بنجاح! خصم 20% ✨' });
       return true;
     } else {
-      setPromoMessage({ type: 'error', text: 'Code promo invalide. Essayez "ECLAT10"' });
+      setPromoMessage({ type: 'error', text: 'رمز الخصم غير صالح. يمكنكِ استخدام "ECLAT10"' });
       return false;
     }
   };

@@ -123,7 +123,7 @@ function BoutiqueMain() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#faf8f5]">
+    <div dir="rtl" className="min-h-screen flex flex-col bg-[#faf8f5]">
       {/* Header avec Navigation, Recherche et Panier */}
       <Header
         activeCategory={activeCategory}
