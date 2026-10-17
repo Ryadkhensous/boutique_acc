@@ -33,26 +33,26 @@ export default function Header({
 
   return (
     <header className="sticky top-0 z-40 w-full shadow-sm transition-all duration-300">
-      {/* الشريط الإعلاني العلوي بلون بيج أنيق */}
-      <div className="bg-gradient-to-r from-[#f5eee4] via-[#ebe0d0] to-[#f5eee4] border-b border-[#e2d5c1] text-[#3d3630] text-xs py-2 px-4 text-center tracking-wider font-medium flex items-center justify-center gap-2 sm:gap-3">
-        <span className="flex items-center gap-1 text-gold-800 font-bold">
-          <Sparkles className="w-3.5 h-3.5 inline animate-pulse text-gold-600" />
+      {/* الشريط الإعلاني العلوي بلون بوردو ملكي مستوحى من زهرة الشعار */}
+      <div className="bg-gradient-to-r from-[#450d1a] via-[#6f1d2e] to-[#450d1a] border-b border-[#3c0a15] text-[#f7e8ea] text-xs py-2 px-4 text-center tracking-wider font-medium flex items-center justify-center gap-2 sm:gap-3">
+        <span className="flex items-center gap-1 text-gold-300 font-bold">
+          <Sparkles className="w-3.5 h-3.5 inline animate-pulse text-gold-300" />
           عرض خاص :
         </span>
         <span>
-          توصيل مجاني لجميع الطلبات من 60 € • خصم 10% باستخدام الرمز <strong className="text-gold-900 hover:text-gold-700 underline font-bold cursor-pointer">ECLAT10</strong>
+          توصيل مجاني لجميع الطلبات من 60 DA • خصم 10% باستخدام الرمز <strong className="text-white hover:text-gold-200 underline font-bold cursor-pointer">ECLAT10</strong>
         </span>
       </div>
 
       {/* شريط التنقل الرئيسي */}
-      <nav className="glass-header border-b border-[#ece6dc] px-4 sm:px-8 py-3.5 transition-all">
+      <nav className="glass-header border-b border-[#ece4d6] px-4 sm:px-8 py-3.5 transition-all">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           
           {/* زر القائمة للشاشات الصغيرة */}
           <div className="flex items-center gap-3 md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-luxe-black hover:text-gold-600 transition"
+              className="p-2 text-luxe-black hover:text-bordeaux-700 transition"
               aria-label="القائمة"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -60,13 +60,25 @@ export default function Header({
           </div>
 
           {/* الشعار وهوية العلامة */}
-          <div className="text-center md:text-right flex-1 md:flex-initial cursor-pointer" onClick={() => handleCategorySelect('all')}>
-            <span className="font-serif text-2xl sm:text-3xl tracking-[0.15em] font-semibold text-luxe-black uppercase hover:opacity-90 transition">
-              أوريلي
-            </span>
-            <span className="block text-[10px] tracking-[0.25em] text-gold-600 uppercase font-medium mt-0.5">
-              باريس • دار الإكسسوارات الفاخرة
-            </span>
+          <div
+            className="flex items-center gap-2.5 sm:gap-3.5 cursor-pointer group flex-1 md:flex-initial justify-center md:justify-start"
+            onClick={() => handleCategorySelect('all')}
+          >
+            <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-[#d8cdbf] shadow-xs group-hover:scale-105 group-hover:shadow-soft group-hover:border-bordeaux-500 transition-all duration-300 flex-shrink-0 bg-[#ece5d5]">
+              <img
+                src="/logo.png"
+                alt="دار أوريلي باريس"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="text-right">
+              <span className="font-serif text-2xl sm:text-3xl tracking-[0.15em] font-semibold text-luxe-black uppercase group-hover:text-bordeaux-800 transition">
+                أوريلي
+              </span>
+              <span className="block text-[10px] tracking-[0.25em] text-gold-700 uppercase font-medium mt-0.5">
+                باريس • دار الإكسسوارات الفاخرة
+              </span>
+            </div>
           </div>
 
           {/* روابط التنقل لسطح المكتب */}
@@ -77,8 +89,8 @@ export default function Header({
                 onClick={() => handleCategorySelect(cat.id)}
                 className={`transition-colors duration-200 py-1 border-b-2 tracking-wide font-medium ${
                   activeCategory === cat.id
-                    ? 'border-gold-600 text-gold-700 font-bold'
-                    : 'border-transparent text-[#443e39] hover:text-gold-600 hover:border-gold-200'
+                    ? 'border-bordeaux-700 text-bordeaux-800 font-bold'
+                    : 'border-transparent text-[#443e39] hover:text-bordeaux-700 hover:border-bordeaux-200'
                 }`}
               >
                 {cat.label}
@@ -150,10 +162,10 @@ export default function Header({
             ) : (
               <button
                 onClick={() => setIsAuthModalOpen(true)}
-                className="group flex items-center gap-2 pr-2 pl-3.5 py-1.5 rounded-full bg-white hover:bg-[#faf6f0] border border-[#e5ded0] hover:border-gold-400 shadow-xs hover:shadow-soft transition-all duration-300 text-luxe-charcoal cursor-pointer"
+                className="group flex items-center gap-2 pr-2 pl-3.5 py-1.5 rounded-full bg-white hover:bg-cream-100 border border-[#e5ded0] hover:border-bordeaux-400 shadow-xs hover:shadow-soft transition-all duration-300 text-luxe-charcoal cursor-pointer"
                 title="تسجيل الدخول / الانضمام"
               >
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gold-100 to-gold-200 text-gold-800 flex items-center justify-center group-hover:bg-gold-500 group-hover:text-white transition-all shadow-xs">
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-cream-200 to-cream-300 text-bordeaux-900 flex items-center justify-center group-hover:bg-bordeaux-700 group-hover:text-white transition-all shadow-xs">
                   <User className="w-3.5 h-3.5" />
                 </div>
                 <span className="hidden sm:inline text-xs font-semibold text-luxe-black tracking-wide">
@@ -165,13 +177,13 @@ export default function Header({
             {/* المفضلة */}
             <button
               onClick={onOpenWishlist}
-              className="p-2 text-luxe-black hover:text-rose-600 transition relative cursor-pointer"
+              className="p-2 text-luxe-black hover:text-bordeaux-700 transition relative cursor-pointer"
               aria-label="المفضلة"
               title="قائمتي المفضلة"
             >
-              <Heart className={`w-5 h-5 ${wishlist.length > 0 ? 'fill-rose-500 text-rose-500' : ''}`} />
+              <Heart className={`w-5 h-5 ${wishlist.length > 0 ? 'fill-bordeaux-600 text-bordeaux-600' : ''}`} />
               {wishlist.length > 0 && (
-                <span className="absolute -top-1 -left-1 bg-rose-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-sm">
+                <span className="absolute -top-1 -left-1 bg-bordeaux-700 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-sm">
                   {wishlist.length}
                 </span>
               )}
@@ -180,13 +192,13 @@ export default function Header({
             {/* زر السلة */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-2 bg-[#2d2724] hover:bg-gold-700 text-white px-3 sm:px-4 py-2 rounded-full transition-all duration-300 shadow-soft hover:shadow-glow group relative cursor-pointer"
+              className="flex items-center gap-2 bg-[#261518] hover:bg-bordeaux-800 text-white px-3 sm:px-4 py-2 rounded-full transition-all duration-300 shadow-soft hover:shadow-glow group relative cursor-pointer"
               aria-label="سلة المشتريات"
             >
-              <ShoppingBag className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              <ShoppingBag className="w-4 h-4 group-hover:scale-110 transition-transform text-gold-300" />
               <span className="hidden sm:inline text-xs font-medium">السلة</span>
               {cartCount > 0 ? (
-                <span className="bg-gold-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-4 text-center">
+                <span className="bg-bordeaux-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-4 text-center">
                   {cartCount}
                 </span>
               ) : (

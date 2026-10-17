@@ -41,9 +41,9 @@ export default function CartDrawer({ onProceedToCheckout }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* رأس سلة المشتريات */}
-        <div className="p-5 border-b border-[#eee7da] flex items-center justify-between bg-[#faf8f5]">
+        <div className="p-5 border-b border-[#eee7da] flex items-center justify-between bg-[#faf7f2]">
           <div className="flex items-center gap-2">
-            <ShoppingBag className="w-5 h-5 text-gold-700" />
+            <ShoppingBag className="w-5 h-5 text-bordeaux-800" />
             <h3 className="font-serif text-lg font-bold text-luxe-black">
               سلة المشتريات ({cart.length})
             </h3>
@@ -58,19 +58,19 @@ export default function CartDrawer({ onProceedToCheckout }) {
         </div>
 
         {/* شريط تقدم الشحن المجاني */}
-        <div className="bg-[#faf5ee] px-5 py-3 border-b border-[#eee7da]">
+        <div className="bg-[#faf7f2] px-5 py-3 border-b border-[#eee7da]">
           <div className="flex items-center justify-between text-xs font-bold text-luxe-charcoal mb-1.5">
             <span className="flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-gold-600" />
+              <Sparkles className="w-3.5 h-3.5 text-bordeaux-700" />
               {remainingForFreeShipping > 0
-                ? `بقي فقط ${remainingForFreeShipping.toFixed(2)} € للاستفادة من التوصيل المجاني`
+                ? `بقي فقط ${remainingForFreeShipping.toFixed(2)} DA للاستفادة من التوصيل المجاني`
                 : 'تهانينا! لقد حصلتِ على توصيل مجاني'}
             </span>
-            <span className="font-bold text-gold-700">{Math.round(progressPercent)}%</span>
+            <span className="font-bold text-bordeaux-800">{Math.round(progressPercent)}%</span>
           </div>
           <div className="w-full bg-[#e8e0d2] h-2 rounded-full overflow-hidden">
             <div
-              className="bg-gold-500 h-full rounded-full transition-all duration-500"
+              className="bg-gradient-to-r from-bordeaux-600 to-bordeaux-800 h-full rounded-full transition-all duration-500"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
@@ -119,7 +119,7 @@ export default function CartDrawer({ onProceedToCheckout }) {
                           {item.name}
                         </h5>
                         <p className="text-[11px] text-luxe-muted mt-0.5">
-                          {item.price.toFixed(2)} € للقطعة
+                          {item.price.toFixed(2)} DA للقطعة
                         </p>
                       </div>
                       <button
@@ -152,7 +152,7 @@ export default function CartDrawer({ onProceedToCheckout }) {
                       </div>
 
                       <span className="font-serif text-sm font-bold text-luxe-black">
-                        {(item.price * item.quantity).toFixed(2)} €
+                        {(item.price * item.quantity).toFixed(2)} DA
                       </span>
                     </div>
                   </div>
@@ -198,13 +198,13 @@ export default function CartDrawer({ onProceedToCheckout }) {
             <div className="space-y-1.5 text-xs text-luxe-charcoal pt-1">
               <div className="flex justify-between">
                 <span>المجموع الفرعي</span>
-                <span>{cartSubtotal.toFixed(2)} €</span>
+                <span>{cartSubtotal.toFixed(2)} DA</span>
               </div>
 
               {discountPercent > 0 && (
                 <div className="flex justify-between text-emerald-700 font-bold">
                   <span>خصم الرمز الترويجي (-{discountPercent}%)</span>
-                  <span>-{discountAmount.toFixed(2)} €</span>
+                  <span>-{discountAmount.toFixed(2)} DA</span>
                 </div>
               )}
 
@@ -214,14 +214,14 @@ export default function CartDrawer({ onProceedToCheckout }) {
                   {shippingFee === 0 ? (
                     <span className="text-emerald-700 font-bold text-[11px]">مجاني</span>
                   ) : (
-                    `${shippingFee.toFixed(2)} €`
+                    `${shippingFee.toFixed(2)} DA`
                   )}
                 </span>
               </div>
 
               <div className="flex justify-between text-base font-bold text-luxe-black pt-2 border-t border-[#e8e0d2]">
                 <span className="font-serif">المجموع الإجمالي</span>
-                <span className="font-serif text-lg text-gold-900">{cartTotal.toFixed(2)} €</span>
+                <span className="font-serif text-lg text-bordeaux-950 font-bold">{cartTotal.toFixed(2)} DA</span>
               </div>
             </div>
 
@@ -231,7 +231,7 @@ export default function CartDrawer({ onProceedToCheckout }) {
                 setIsCartOpen(false);
                 onProceedToCheckout();
               }}
-              className="w-full gold-gradient-bg hover:opacity-95 text-white font-bold text-sm py-3.5 rounded-full shadow-soft flex items-center justify-center gap-2 cursor-pointer transition-transform active:scale-98"
+              className="w-full bordeaux-gradient-bg hover:opacity-95 text-white font-bold text-sm py-3.5 rounded-full shadow-soft flex items-center justify-center gap-2 cursor-pointer transition-transform active:scale-98"
             >
               <span>تأكيد وإتمام الطلب</span>
               <ArrowLeft className="w-4 h-4" />

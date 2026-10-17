@@ -6,7 +6,7 @@ const initialDemoUser = {
   id: 1,
   name: 'Camille de Montmirail',
   email: 'camille@aurelie-paris.com',
-  phone: '+33 6 12 34 56 78',
+  phone: '0550 12 34 56',
   avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
   address: '14 Rue de la Paix',
   city: 'Paris',

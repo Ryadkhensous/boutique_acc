@@ -78,8 +78,8 @@ export default function CategoryFilter({
               }}
               className={`relative overflow-hidden rounded-2xl p-4 text-right transition-all duration-300 border cursor-pointer group flex flex-col justify-between h-36 sm:h-44 ${
                 isSelected
-                  ? 'border-gold-500 bg-white ring-2 ring-gold-400/40 shadow-soft'
-                  : 'border-[#eae3d5] bg-white/70 hover:bg-white hover:border-gold-300 hover:shadow-sm'
+                  ? 'border-bordeaux-700 bg-white ring-2 ring-bordeaux-600/30 shadow-soft'
+                  : 'border-[#eae3d5] bg-white/70 hover:bg-white hover:border-bordeaux-300 hover:shadow-sm'
               }`}
             >
               {/* صورة الخلفية الشفافة */}
@@ -94,19 +94,19 @@ export default function CategoryFilter({
               {/* أيقونة الفئة */}
               <div className="flex items-center justify-between relative z-10">
                 <div className={`p-2 rounded-xl transition-colors ${
-                  isSelected ? 'bg-gold-500 text-white shadow-sm' : 'bg-[#f4efe8] text-luxe-charcoal group-hover:bg-gold-100 group-hover:text-gold-700'
+                  isSelected ? 'bg-bordeaux-800 text-white shadow-sm' : 'bg-[#f4efe8] text-luxe-charcoal group-hover:bg-cream-200 group-hover:text-bordeaux-800'
                 }`}>
                   <Icon className="w-5 h-5" />
                 </div>
                 {isSelected && (
-                  <span className="w-2 h-2 rounded-full bg-gold-500" />
+                  <span className="w-2 h-2 rounded-full bg-bordeaux-700" />
                 )}
               </div>
 
               {/* العناوين */}
               <div className="relative z-10 mt-auto">
                 <h3 className={`font-serif text-sm sm:text-base font-bold leading-tight ${
-                  isSelected ? 'text-gold-900' : 'text-luxe-black'
+                  isSelected ? 'text-bordeaux-900' : 'text-luxe-black'
                 }`}>
                   {cat.name}
                 </h3>
@@ -133,8 +133,8 @@ export default function CategoryFilter({
                 onClick={() => onSelectSubCategory(sub.id)}
                 className={`text-xs px-4 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap border cursor-pointer font-medium ${
                   isSubSelected
-                    ? 'bg-[#2d2724] text-white border-[#2d2724] shadow-sm font-bold'
-                    : 'bg-white text-luxe-charcoal border-[#e3dcd1] hover:border-gold-400 hover:text-gold-700'
+                    ? 'bg-bordeaux-800 text-white border-bordeaux-800 shadow-sm font-bold'
+                    : 'bg-white text-luxe-charcoal border-[#e3dcd1] hover:border-bordeaux-300 hover:text-bordeaux-800'
                 }`}
               >
                 {sub.label}

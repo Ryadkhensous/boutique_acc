@@ -15,9 +15,9 @@ export default function WishlistModal({ isOpen, onClose, allProducts }) {
         className="relative bg-white w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl border border-[#ede5d8] my-8 animate-slide-up"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="p-5 border-b border-[#eee7da] flex items-center justify-between bg-[#faf8f5]">
+        <div className="p-5 border-b border-[#eee7da] flex items-center justify-between bg-[#faf7f2]">
           <div className="flex items-center gap-2">
-            <Heart className="w-5 h-5 text-rose-500 fill-rose-500" />
+            <Heart className="w-5 h-5 text-bordeaux-700 fill-bordeaux-700" />
             <h3 className="font-serif text-lg font-bold text-luxe-black">
               قائمتي المفضلة ({favoriteProducts.length})
             </h3>
@@ -34,7 +34,7 @@ export default function WishlistModal({ isOpen, onClose, allProducts }) {
         <div className="p-5 max-h-[60vh] overflow-y-auto space-y-3">
           {favoriteProducts.length === 0 ? (
             <div className="text-center py-12 space-y-3">
-              <Heart className="w-12 h-12 text-rose-200 mx-auto" />
+              <Heart className="w-12 h-12 text-bordeaux-200 mx-auto" />
               <p className="font-serif text-base font-bold text-gray-800">قائمة رغباتكِ فارغة</p>
               <p className="text-xs text-gray-500 max-w-xs mx-auto leading-relaxed">
                 اضغطي على رمز القلب في القطع التي تنال إعجابكِ لتجديها محفوظة هنا في أي وقت.
@@ -49,18 +49,18 @@ export default function WishlistModal({ isOpen, onClose, allProducts }) {
               } catch {}
 
               return (
-                <div key={p.id} className="flex items-center gap-4 p-3 rounded-2xl border border-[#eee7da] hover:border-gold-300 transition">
+                <div key={p.id} className="flex items-center gap-4 p-3 rounded-2xl border border-[#eee7da] hover:border-bordeaux-300 transition">
                   <img src={imgUrl} alt={p.name} className="w-16 h-16 object-cover rounded-xl bg-gray-50 flex-shrink-0" />
                   <div className="flex-1 min-w-0 text-right">
                     <h5 className="font-serif text-sm font-bold text-gray-900 truncate">{p.name}</h5>
-                    <p className="text-xs font-bold text-gold-800 mt-0.5">{p.price.toFixed(2)} €</p>
+                    <p className="text-xs font-bold text-bordeaux-800 mt-0.5">{p.price.toFixed(2)} DA</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => {
                         addToCart(p, 1);
                       }}
-                      className="p-2 rounded-full bg-[#2d2724] hover:bg-gold-600 text-white transition cursor-pointer shadow-sm"
+                      className="p-2 rounded-full bg-[#261518] hover:bg-bordeaux-800 text-white transition cursor-pointer shadow-sm"
                       title="أضف إلى السلة"
                     >
                       <ShoppingBag className="w-4 h-4" />

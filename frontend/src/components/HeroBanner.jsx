@@ -4,24 +4,24 @@ import heroLandscape from '../assets/hero-landscape.jpg';
 
 export default function HeroBanner({ onSelectCategory }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#faf5ee] via-[#f7f0e6] to-[#faf8f5] py-10 lg:py-16 border-b border-[#eee7da]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#faf7f2] via-[#f5efe6] to-[#ece5d5]/40 py-10 lg:py-16 border-b border-[#ece4d6]">
       {/* عناصر خلفية زخرفية ناعمة */}
-      <div className="absolute top-10 right-10 w-96 h-96 bg-blush-200/40 rounded-full blur-3xl pointer-events-none -z-0" />
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-gold-200/40 rounded-full blur-3xl pointer-events-none -z-0" />
+      <div className="absolute top-10 right-10 w-96 h-96 bg-bordeaux-300/15 rounded-full blur-3xl pointer-events-none -z-0" />
+      <div className="absolute bottom-10 left-10 w-96 h-96 bg-cream-300/40 rounded-full blur-3xl pointer-events-none -z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* عمود النصوص والعناوين */}
           <div className="lg:col-span-6 space-y-6 text-center lg:text-right">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-gold-200 text-xs font-bold text-gold-800 tracking-wider shadow-sm uppercase">
-              <Sparkles className="w-3.5 h-3.5 text-gold-500" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-bordeaux-200 text-xs font-bold text-bordeaux-900 tracking-wider shadow-sm uppercase">
+              <Sparkles className="w-3.5 h-3.5 text-bordeaux-600" />
               مجموعة ربيع وصيف 2026 الحصرية
             </div>
 
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-luxe-black leading-[1.25] font-bold tracking-tight">
               الأناقة الباريسية الأنثوية،{' '}
-              <span className="italic font-serif text-gold-700 font-bold block sm:inline">في أدق تفاصيلها.</span>
+              <span className="italic font-serif text-bordeaux-800 font-bold block sm:inline">في أدق تفاصيلها.</span>
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-luxe-muted max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
@@ -32,7 +32,7 @@ export default function HeroBanner({ onSelectCategory }) {
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1">
               <button
                 onClick={() => onSelectCategory('bijoux')}
-                className="gold-gradient-bg text-white font-medium text-xs sm:text-sm px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-soft hover:shadow-glow transition-all duration-300 flex items-center gap-2 group cursor-pointer"
+                className="bordeaux-gradient-bg text-white font-medium text-xs sm:text-sm px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-soft hover:shadow-glow transition-all duration-300 flex items-center gap-2 group cursor-pointer"
               >
                 <span>اكتشفي المجوهرات</span>
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -40,14 +40,14 @@ export default function HeroBanner({ onSelectCategory }) {
 
               <button
                 onClick={() => onSelectCategory('montres')}
-                className="bg-white hover:bg-[#f6f2ea] text-luxe-black border border-[#e4ded3] font-medium text-xs sm:text-sm px-5 sm:px-6 py-3 sm:py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-sm hover:border-gold-300"
+                className="bg-white hover:bg-cream-100 text-luxe-black border border-[#e4ded3] font-medium text-xs sm:text-sm px-5 sm:px-6 py-3 sm:py-3.5 rounded-full transition-all duration-300 cursor-pointer shadow-sm hover:border-bordeaux-300"
               >
                 الساعات الفاخرة
               </button>
 
               <button
                 onClick={() => onSelectCategory('casquettes')}
-                className="text-xs uppercase tracking-wider text-luxe-muted hover:text-gold-700 font-bold underline underline-offset-4 py-2 px-3"
+                className="text-xs uppercase tracking-wider text-luxe-muted hover:text-bordeaux-800 font-bold underline underline-offset-4 py-2 px-3"
               >
                 قبعات مخملية وأنيقة ←
               </button>
@@ -56,15 +56,15 @@ export default function HeroBanner({ onSelectCategory }) {
             {/* بطاقات الثقة والضمانات */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-6 sm:pt-8 border-t border-[#ece4d6]">
               <div className="flex items-center gap-2.5 text-right">
-                <Truck className="w-4 h-4 text-gold-600 flex-shrink-0" />
+                <Truck className="w-4 h-4 text-bordeaux-700 flex-shrink-0" />
                 <div>
                   <p className="text-xs font-bold text-luxe-black leading-tight">توصيل خلال 48 ساعة</p>
-                  <p className="text-[10px] text-luxe-muted">مجاني من 60 €</p>
+                  <p className="text-[10px] text-luxe-muted">مجاني من 60 DA</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2.5 text-right">
-                <Award className="w-4 h-4 text-gold-600 flex-shrink-0" />
+                <Award className="w-4 h-4 text-bordeaux-700 flex-shrink-0" />
                 <div>
                   <p className="text-xs font-bold text-luxe-black leading-tight">ذهب عيار 18</p>
                   <p className="text-[10px] text-luxe-muted">مقاوم تام للماء</p>
@@ -72,7 +72,7 @@ export default function HeroBanner({ onSelectCategory }) {
               </div>
 
               <div className="flex items-center gap-2.5 text-right">
-                <Gift className="w-4 h-4 text-gold-600 flex-shrink-0" />
+                <Gift className="w-4 h-4 text-bordeaux-700 flex-shrink-0" />
                 <div>
                   <p className="text-xs font-bold text-luxe-black leading-tight">علبة هدايا فاخرة</p>
                   <p className="text-[10px] text-luxe-muted">مقدمة مع كل طلب</p>
@@ -80,7 +80,7 @@ export default function HeroBanner({ onSelectCategory }) {
               </div>
 
               <div className="flex items-center gap-2.5 text-right">
-                <ShieldCheck className="w-4 h-4 text-gold-600 flex-shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-bordeaux-700 flex-shrink-0" />
                 <div>
                   <p className="text-xs font-bold text-luxe-black leading-tight">ضمان سنتين</p>
                   <p className="text-[10px] text-luxe-muted">ضمان الاستبدال والرضا</p>
@@ -137,7 +137,7 @@ export default function HeroBanner({ onSelectCategory }) {
                 />
                 <div>
                   <p className="text-[10px] font-bold text-gray-900 leading-tight">ساعة أورا رخامية</p>
-                  <p className="text-[10px] text-gold-600 font-bold">119,00 €</p>
+                  <p className="text-[10px] text-gold-600 font-bold">119,00 DA</p>
                 </div>
               </div>
 

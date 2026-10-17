@@ -36,20 +36,20 @@ export default function ProductCard({ product, onQuickView }) {
   const getBadgeStyle = (badge) => {
     if (!badge) return null;
     if (badge.includes('-') || badge.includes('%') || badge.includes('خصم')) {
-      return 'bg-rose-500 text-white';
+      return 'bg-bordeaux-700 text-white font-bold';
     }
     if (badge.includes('مبيع') || badge === 'Bestseller') {
-      return 'bg-amber-600 text-white';
+      return 'bg-gold-600 text-white font-bold';
     }
     if (badge.includes('مفضل') || badge === 'Coup de Cœur') {
-      return 'bg-blush-600 text-white';
+      return 'bg-bordeaux-800 text-white font-bold';
     }
-    return 'bg-[#2a2421] text-gold-200';
+    return 'bg-[#261518] text-cream-200 font-bold';
   };
 
   return (
     <div
-      className="group relative bg-white rounded-2xl overflow-hidden border border-[#eee7da] hover:border-gold-300 shadow-sm hover:shadow-soft transition-all duration-300 flex flex-col cursor-pointer text-right"
+      className="group relative bg-white rounded-2xl overflow-hidden border border-[#eee7da] hover:border-bordeaux-300 shadow-sm hover:shadow-soft transition-all duration-300 flex flex-col cursor-pointer text-right"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onQuickView(product)}
@@ -92,9 +92,9 @@ export default function ProductCard({ product, onQuickView }) {
         <button
           onClick={handleWishlistToggle}
           aria-label="إضافة إلى المفضلة"
-          className="absolute top-3 left-3 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm shadow-md flex items-center justify-center text-gray-700 hover:text-rose-500 hover:bg-white transition-all transform active:scale-90"
+          className="absolute top-3 left-3 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm shadow-md flex items-center justify-center text-gray-700 hover:text-bordeaux-600 hover:bg-white transition-all transform active:scale-90"
         >
-          <Heart className={`w-4 h-4 ${isFavorite ? 'fill-rose-500 text-rose-500' : ''}`} />
+          <Heart className={`w-4 h-4 ${isFavorite ? 'fill-bordeaux-600 text-bordeaux-600' : ''}`} />
         </button>
 
         {/* زر المعاينة السريعة */}
@@ -104,7 +104,7 @@ export default function ProductCard({ product, onQuickView }) {
               e.stopPropagation();
               onQuickView(product);
             }}
-            className="w-full bg-white/95 backdrop-blur-sm text-luxe-black hover:text-gold-700 text-xs font-bold py-2.5 rounded-xl shadow-md border border-[#e8e2d5] flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+            className="w-full bg-white/95 backdrop-blur-sm text-luxe-black hover:text-bordeaux-800 text-xs font-bold py-2.5 rounded-xl shadow-md border border-[#e8e2d5] flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
           >
             <Eye className="w-3.5 h-3.5" />
             نظرة سريعة
@@ -144,7 +144,7 @@ export default function ProductCard({ product, onQuickView }) {
           )}
 
           {/* اسم المنتج */}
-          <h4 className="font-serif text-sm sm:text-base font-bold text-luxe-black line-clamp-1 group-hover:text-gold-700 transition-colors">
+          <h4 className="font-serif text-sm sm:text-base font-bold text-luxe-black line-clamp-1 group-hover:text-bordeaux-800 transition-colors">
             {product.name}
           </h4>
         </div>
@@ -154,11 +154,11 @@ export default function ProductCard({ product, onQuickView }) {
           <div>
             <div className="flex items-baseline gap-2">
               <span className="font-serif text-base sm:text-lg font-bold text-luxe-black">
-                {product.price.toFixed(2)} €
+                {product.price.toFixed(2)} DA
               </span>
               {product.originalPrice && (
                 <span className="text-xs text-gray-400 line-through">
-                  {product.originalPrice.toFixed(2)} €
+                  {product.originalPrice.toFixed(2)} DA
                 </span>
               )}
             </div>
@@ -174,7 +174,7 @@ export default function ProductCard({ product, onQuickView }) {
             className={`p-2.5 rounded-full transition-all duration-300 flex items-center justify-center cursor-pointer shadow-sm ${
               justAdded
                 ? 'bg-emerald-600 text-white scale-105'
-                : 'bg-[#2d2724] hover:bg-gold-600 text-white active:scale-95'
+                : 'bg-[#261518] hover:bg-bordeaux-800 text-white active:scale-95'
             }`}
             title="أضف إلى السلة"
             aria-label="أضف إلى السلة"

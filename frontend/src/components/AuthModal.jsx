@@ -36,7 +36,7 @@ export default function AuthModal({ isOpen, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* رأس النافذة */}
-        <div className="bg-gradient-to-br from-[#2a2421] to-[#3d342f] p-6 text-white text-center relative">
+        <div className="bg-gradient-to-br from-[#3c0a15] via-[#541221] to-[#28050e] p-6 text-white text-center relative">
           <button
             onClick={onClose}
             className="absolute top-4 left-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition cursor-pointer"
@@ -44,6 +44,14 @@ export default function AuthModal({ isOpen, onClose }) {
           >
             <X className="w-4 h-4" />
           </button>
+
+          <div className="w-14 h-14 mx-auto mb-3 rounded-full overflow-hidden border border-gold-400/50 shadow-soft bg-[#ece5d5]">
+            <img
+              src="/logo.png"
+              alt="دار أوريلي باريس"
+              className="w-full h-full object-cover"
+            />
+          </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-500/20 border border-gold-400/30 text-gold-300 text-[10px] uppercase font-bold tracking-wider mb-2">
             <Sparkles className="w-3 h-3 text-gold-400" />
@@ -53,7 +61,7 @@ export default function AuthModal({ isOpen, onClose }) {
           <h3 className="font-serif text-2xl font-bold tracking-tight">
             دار أوريلي باريس
           </h3>
-          <p className="text-xs text-[#d1c8bf] mt-1 leading-relaxed">
+          <p className="text-xs text-[#eed5da] mt-1 leading-relaxed">
             صالونكِ الخاص لمتابعة طلبياتكِ وجمع المكافآت الحصرية.
           </p>
         </div>
@@ -63,9 +71,9 @@ export default function AuthModal({ isOpen, onClose }) {
           <button
             type="button"
             onClick={loginAsDemo}
-            className="w-full bg-[#faf5ee] hover:bg-gold-50 border border-gold-300 text-gold-900 font-bold text-xs py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition cursor-pointer shadow-xs group"
+            className="w-full bg-[#faf7f2] hover:bg-cream-100 border border-bordeaux-300 text-bordeaux-950 font-bold text-xs py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition cursor-pointer shadow-xs group"
           >
-            <Sparkles className="w-4 h-4 text-gold-600 group-hover:scale-110 transition-transform" />
+            <Sparkles className="w-4 h-4 text-bordeaux-700 group-hover:scale-110 transition-transform" />
             <span>تجربة بنقرة واحدة : حساب VIP كاميل (تجريبي)</span>
           </button>
         </div>
@@ -76,7 +84,7 @@ export default function AuthModal({ isOpen, onClose }) {
             <button
               onClick={() => { setIsRegister(false); setError(null); }}
               className={`flex-1 pb-2.5 transition text-center border-b-2 cursor-pointer ${
-                !isRegister ? 'border-gold-600 text-gold-800' : 'border-transparent text-gray-500 hover:text-gray-900'
+                !isRegister ? 'border-bordeaux-700 text-bordeaux-900' : 'border-transparent text-gray-500 hover:text-gray-900'
               }`}
             >
               تسجيل الدخول
@@ -84,7 +92,7 @@ export default function AuthModal({ isOpen, onClose }) {
             <button
               onClick={() => { setIsRegister(true); setError(null); }}
               className={`flex-1 pb-2.5 transition text-center border-b-2 cursor-pointer ${
-                isRegister ? 'border-gold-600 text-gold-800' : 'border-transparent text-gray-500 hover:text-gray-900'
+                isRegister ? 'border-bordeaux-700 text-bordeaux-900' : 'border-transparent text-gray-500 hover:text-gray-900'
               }`}
             >
               إنشاء حساب VIP جديد
@@ -111,7 +119,7 @@ export default function AuthModal({ isOpen, onClose }) {
                   placeholder="مثال: ياسمين بلقاسم"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full pr-10 pl-3 py-2.5 bg-[#faf8f5] border border-[#ded5c7] rounded-xl text-xs text-gray-900 outline-none focus:border-gold-500 text-right"
+                  className="w-full pr-10 pl-3 py-2.5 bg-[#faf7f2] border border-[#ded5c7] rounded-xl text-xs text-gray-900 outline-none focus:border-bordeaux-600 text-right"
                 />
               </div>
             </div>
@@ -127,7 +135,7 @@ export default function AuthModal({ isOpen, onClose }) {
                 placeholder="yasmine@example.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full pr-10 pl-3 py-2.5 bg-[#faf8f5] border border-[#ded5c7] rounded-xl text-xs text-gray-900 outline-none focus:border-gold-500 text-right"
+                className="w-full pr-10 pl-3 py-2.5 bg-[#faf7f2] border border-[#ded5c7] rounded-xl text-xs text-gray-900 outline-none focus:border-bordeaux-600 text-right"
               />
             </div>
           </div>
@@ -142,7 +150,7 @@ export default function AuthModal({ isOpen, onClose }) {
                 placeholder="••••••••"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className="w-full pr-10 pl-3 py-2.5 bg-[#faf8f5] border border-[#ded5c7] rounded-xl text-xs text-gray-900 outline-none focus:border-gold-500 text-right font-mono"
+                className="w-full pr-10 pl-3 py-2.5 bg-[#faf7f2] border border-[#ded5c7] rounded-xl text-xs text-gray-900 outline-none focus:border-bordeaux-600 text-right font-mono"
               />
             </div>
           </div>
@@ -150,7 +158,7 @@ export default function AuthModal({ isOpen, onClose }) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full gold-gradient-bg hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-full shadow-soft flex items-center justify-center gap-2 cursor-pointer transition active:scale-98 mt-2"
+            className="w-full bordeaux-gradient-bg hover:opacity-95 text-white font-bold text-xs py-3.5 rounded-full shadow-soft flex items-center justify-center gap-2 cursor-pointer transition active:scale-98 mt-2"
           >
             <span>{loading ? 'جاري التحقق...' : isRegister ? 'إنشاء حسابي والانضمام' : 'الدخول إلى صالوني الخاص'}</span>
             <ArrowLeft className="w-3.5 h-3.5" />

@@ -28,14 +28,14 @@ export default function ProductGrid({
         {/* محدد الترتيب */}
         <div className="flex items-center gap-2.5">
           <label htmlFor="sort-select" className="text-xs font-bold text-luxe-muted flex items-center gap-1.5 whitespace-nowrap">
-            <ArrowUpDown className="w-3.5 h-3.5 text-gold-600" />
+            <ArrowUpDown className="w-3.5 h-3.5 text-bordeaux-700" />
             ترتيب حسب :
           </label>
           <select
             id="sort-select"
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="bg-white border border-[#e1d9cc] text-luxe-charcoal text-xs rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-gold-400 focus:border-gold-400 transition cursor-pointer shadow-sm font-medium"
+            className="bg-white border border-[#e1d9cc] text-luxe-charcoal text-xs rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-bordeaux-400 focus:border-bordeaux-500 transition cursor-pointer shadow-sm font-medium"
           >
             <option value="featured">✨ التميز وتوصيات الدار</option>
             <option value="price-asc">السعر : من الأقل للأعلى</option>
@@ -59,7 +59,7 @@ export default function ProductGrid({
       ) : (
         /* الحالة الفارغة */
         <div className="text-center py-16 bg-white rounded-3xl border border-[#eee7da] p-8 max-w-lg mx-auto shadow-sm">
-          <div className="w-14 h-14 bg-gold-50 text-gold-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-14 h-14 bg-cream-100 text-bordeaux-700 rounded-full flex items-center justify-center mx-auto mb-4">
             <Sparkles className="w-6 h-6 animate-pulse" />
           </div>
           <h3 className="font-serif text-lg font-bold text-luxe-black">
@@ -70,7 +70,7 @@ export default function ProductGrid({
           </p>
           <button
             onClick={onResetFilters}
-            className="mt-6 bg-[#2d2724] hover:bg-gold-700 text-white text-xs font-bold px-6 py-2.5 rounded-full transition shadow-sm cursor-pointer"
+            className="mt-6 bg-[#261518] hover:bg-bordeaux-800 text-white text-xs font-bold px-6 py-2.5 rounded-full transition shadow-sm cursor-pointer"
           >
             إعادة ضبط الفلاتر
           </button>

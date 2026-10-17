@@ -25,3 +25,5 @@ backend/.env
 Thumbs.db
 .vscode/
 .vercel
+
+.vercel

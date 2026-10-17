@@ -257,3 +257,42 @@ export const initialProducts = [
     featured: false
   }
 ];
+
+export const mockReviews = [
+  {
+    id: 1,
+    productId: 1,
+    author: "Camille D.",
+    rating: 5,
+    comment: "Le collier est absolument magnifique ! La nacre a des reflets incroyables et la dorure n'a pas bougé après 3 mois d'utilisation quotidienne.",
+    verified: true,
+    date: "Il y a 2 jours"
+  },
+  {
+    id: 2,
+    productId: 5,
+    author: "Sophie M.",
+    rating: 5,
+    comment: "Montre somptueuse, le cadran effet marbre apporte un chic fou. Emballage soigné avec un petit pochon satiné.",
+    verified: true,
+    date: "Il y a 5 jours"
+  },
+  {
+    id: 3,
+    productId: 8,
+    author: "Léa B.",
+    rating: 5,
+    comment: "Couleur rose poudré très douce, ni trop vive ni fade. La matière en coton peigné est hyper confortable et la broderie de qualité.",
+    verified: true,
+    date: "Il y a 1 semaine"
+  },
+  {
+    id: 4,
+    productId: 2,
+    author: "Élodie V.",
+    rating: 5,
+    comment: "Bague sublime ! Les zircons brillent beaucoup, et le fait qu'elle soit ajustable est un vrai plus.",
+    verified: true,
+    date: "Il y a 2 semaines"
+  }
+];

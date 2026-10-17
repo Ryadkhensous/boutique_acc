@@ -31,7 +31,7 @@ export default function FeaturesSection() {
         
         {/* رأس القسم */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-gold-700">
+          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-bordeaux-800 font-bold">
             تميز وإتقان الدار
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-luxe-black">
@@ -49,9 +49,9 @@ export default function FeaturesSection() {
             return (
               <div
                 key={i}
-                className="bg-[#faf8f5] p-6 rounded-3xl border border-[#ede5d8] hover:border-gold-300 hover:shadow-soft transition-all duration-300 flex flex-col items-center text-center group"
+                className="bg-[#faf7f2] p-6 rounded-3xl border border-[#ede5d8] hover:border-bordeaux-300 hover:shadow-soft transition-all duration-300 flex flex-col items-center text-center group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-white border border-[#e5dfd2] text-gold-700 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-gold-500 group-hover:text-white transition-all shadow-xs">
+                <div className="w-14 h-14 rounded-2xl bg-white border border-[#e5dfd2] text-bordeaux-800 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-bordeaux-800 group-hover:text-white transition-all shadow-xs">
                   <Icon className="w-6 h-6" />
                 </div>
                 <h4 className="font-serif text-base font-bold text-luxe-black mb-2">
